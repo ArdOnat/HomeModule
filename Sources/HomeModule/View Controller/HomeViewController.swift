@@ -51,13 +51,7 @@ public final class HomeViewController: UIViewController {
     // MARK: Initializers
     init(presenter: HomePresenterProtocol) {
         self.presenter = presenter
-        super.init(nibName: nil, bundle: .main)
-    }
-    
-    
-    convenience init(someShit: HomePresenterProtocol) {
-        self.init(presenter: someShit)
-
+        super.init(nibName: nil, bundle: .module)
     }
     
     required init?(coder aDecoder: NSCoder) {
