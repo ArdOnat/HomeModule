@@ -17,7 +17,7 @@ public struct HomePageRequest: Request {
     public var request: HomePageRequest.Request
     public var apiEnvironment: ApiEnvironment
     
-    init (request: HomePageRequest.Request, apiEnvironment: ApiEnvironment) {
+    public init (request: HomePageRequest.Request, apiEnvironment: ApiEnvironment) {
         self.request = request
         self.apiEnvironment = apiEnvironment
     }
