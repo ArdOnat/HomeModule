@@ -26,7 +26,7 @@ protocol HomeViewProtocol: AnyObject {
     func showActivityIndicator(_ shouldShow: Bool)
 }
 
-final class HomeViewController: UIViewController {
+public final class HomeViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet private weak var searchBar: UISearchBar!
@@ -65,7 +65,7 @@ final class HomeViewController: UIViewController {
     }
 
     // MARK: Lifecycle
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
     }
@@ -141,29 +141,29 @@ extension HomeViewController: HomeViewProtocol {
 
 extension HomeViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         presenter.didSearchBarSearchButtonClicked(cityName: searchBar.text ?? "")
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.bounds.height / 2.2
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         presenter.scrollViewDidScroll()
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.weatherInformationList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell : WeatherInformationUITableViewCell = tableView.dequeueReusableCell(withIdentifier: WeatherInformationUITableViewCell.ReuseIdentifier, for : indexPath) as? WeatherInformationUITableViewCell else {
             return UITableViewCell()
         }
@@ -175,7 +175,7 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             presenter.didUpdateLocations(latitude: location.coordinate.latitude.magnitude, longitude: location.coordinate.longitude.magnitude)
         }
