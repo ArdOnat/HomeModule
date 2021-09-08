@@ -12,24 +12,24 @@ class WeatherInformationUITableViewCell: UITableViewCell {
     static let ReuseIdentifier: String = "WeatherInformationUITableViewCell"
     
     // MARK: IBOutlets
-    @IBOutlet private weak var dateLabel2: UILabel!
-    @IBOutlet private weak var hoursCollectionView2: UICollectionView!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var hoursCollectionView: UICollectionView!
     
     var informationModel: [CountryWeatherInformationModel]? {
         didSet {
             guard let firstInformationModel = informationModel?.first else { return }
             
-            dateLabel2.text = "\(firstInformationModel.dt_txt.split(separator: " ").first ?? "")"
-            hoursCollectionView2.reloadData()
+            dateLabel.text = "\(firstInformationModel.dt_txt.split(separator: " ").first ?? "")"
+            hoursCollectionView.reloadData()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        hoursCollectionView2.delegate = self
-        hoursCollectionView2.dataSource = self
+        hoursCollectionView.delegate = self
+        hoursCollectionView.dataSource = self
         
-        hoursCollectionView2.register(UINib(nibName: HourlyDataCollectionViewCell.ReuseIdentifier, bundle: .module), forCellWithReuseIdentifier: HourlyDataCollectionViewCell.ReuseIdentifier)
+        hoursCollectionView.register(UINib(nibName: HourlyDataCollectionViewCell.ReuseIdentifier, bundle: .module), forCellWithReuseIdentifier: HourlyDataCollectionViewCell.ReuseIdentifier)
     }
 }
 
