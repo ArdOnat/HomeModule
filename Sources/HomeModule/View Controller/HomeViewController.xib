@@ -21,6 +21,7 @@
                 <outlet property="resultTableView" destination="dG6-hk-UKt" id="McH-eQ-qHT"/>
                 <outlet property="searchBar" destination="vy7-eK-DAM" id="0WQ-Mb-LSN"/>
                 <outlet property="seperatorView" destination="vLD-kr-fka" id="E6x-ZM-dFN"/>
+                <outlet property="view" destination="2gd-DX-2bE" id="1K8-Fl-fJG"/>
                 <outlet property="weatherSitatuationImageView" destination="xkr-6g-yjz" id="479-V1-uPE"/>
             </connections>
         </placeholder>
