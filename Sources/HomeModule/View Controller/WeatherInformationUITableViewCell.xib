@@ -44,6 +44,10 @@
                     <constraint firstAttribute="bottom" secondItem="aFU-lZ-qwV" secondAttribute="bottom" id="ofn-ly-rRB"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="XJO-uL-lB5" id="8iP-6n-ILR"/>
+                <outlet property="hoursCollectionView" destination="aFU-lZ-qwV" id="J89-fl-q8w"/>
+            </connections>
             <point key="canvasLocation" x="-306.52173913043481" y="329.12946428571428"/>
         </tableViewCell>
     </objects>
