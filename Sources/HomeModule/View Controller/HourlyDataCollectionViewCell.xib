@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FeZ-1C-pXh" customClass="HourlyDataCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="166"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="240" height="166"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10d" translatesAutoresizingMaskIntoConstraints="NO" id="kNe-QI-kve">
+                        <rect key="frame" x="96.5" y="36.5" width="47" height="47.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="kNe-QI-kve" secondAttribute="height" multiplier="1:1" id="qDN-d0-4zj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCb-fi-X6l">
+                        <rect key="frame" x="99.5" y="8" width="41.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bZZ-ke-yRZ">
+                        <rect key="frame" x="70.5" y="92" width="99" height="20.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfE-LO-iVm">
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w36-NZ-ceU">
+                                <rect key="frame" x="57.5" y="0.0" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="6nE-0a-nTd"/>
+            <constraints>
+                <constraint firstItem="iCb-fi-X6l" firstAttribute="centerX" secondItem="6nE-0a-nTd" secondAttribute="centerX" id="97h-jV-nU3"/>
+                <constraint firstItem="kNe-QI-kve" firstAttribute="centerX" secondItem="6nE-0a-nTd" secondAttribute="centerX" id="IMW-Cf-6yW"/>
+                <constraint firstItem="kNe-QI-kve" firstAttribute="top" secondItem="iCb-fi-X6l" secondAttribute="bottom" constant="8" id="IOZ-Wy-C9p"/>
+                <constraint firstItem="iCb-fi-X6l" firstAttribute="top" secondItem="FeZ-1C-pXh" secondAttribute="top" constant="8" id="OK5-ui-fcA"/>
+                <constraint firstItem="bZZ-ke-yRZ" firstAttribute="centerX" secondItem="6nE-0a-nTd" secondAttribute="centerX" id="iZA-Zh-gD1"/>
+                <constraint firstItem="bZZ-ke-yRZ" firstAttribute="top" secondItem="kNe-QI-kve" secondAttribute="bottom" constant="8" id="ira-bP-MKC"/>
+                <constraint firstItem="kNe-QI-kve" firstAttribute="height" secondItem="FeZ-1C-pXh" secondAttribute="height" multiplier="1:3.5" id="kV3-Vw-6Wh"/>
+            </constraints>
+            <size key="customSize" width="240" height="163"/>
+            <connections>
+                <outlet property="highTemperatureLabel" destination="w36-NZ-ceU" id="x7s-Mz-Pt8"/>
+                <outlet property="hourLabel" destination="iCb-fi-X6l" id="Waz-KN-mhP"/>
+                <outlet property="lowTemperatureLabel" destination="jfE-LO-iVm" id="tgg-5V-V6W"/>
+                <outlet property="weatherSituationImageView" destination="kNe-QI-kve" id="U3n-Yc-7LP"/>
+            </connections>
+            <point key="canvasLocation" x="136.23188405797103" y="168.08035714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="10d" width="512" height="512"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
