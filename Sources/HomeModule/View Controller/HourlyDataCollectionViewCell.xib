@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -60,10 +61,10 @@
             </constraints>
             <size key="customSize" width="240" height="163"/>
             <connections>
-                <outlet property="highTemperatureLabel" destination="w36-NZ-ceU" id="x7s-Mz-Pt8"/>
-                <outlet property="hourLabel" destination="iCb-fi-X6l" id="Waz-KN-mhP"/>
-                <outlet property="lowTemperatureLabel" destination="jfE-LO-iVm" id="tgg-5V-V6W"/>
-                <outlet property="weatherSituationImageView" destination="kNe-QI-kve" id="U3n-Yc-7LP"/>
+                <outlet property="highTemperatureLabel" destination="w36-NZ-ceU" id="l6h-mP-EhS"/>
+                <outlet property="hourLabel" destination="iCb-fi-X6l" id="fh9-zM-Ybg"/>
+                <outlet property="lowTemperatureLabel" destination="jfE-LO-iVm" id="2FM-Hd-gcG"/>
+                <outlet property="weatherSituationImageView" destination="kNe-QI-kve" id="9Jl-CB-utv"/>
             </connections>
             <point key="canvasLocation" x="136.23188405797103" y="168.08035714285714"/>
         </collectionViewCell>
