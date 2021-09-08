@@ -81,7 +81,7 @@ extension HomeViewController: HomeViewProtocol {
         resultTableView.delegate = self
         resultTableView.dataSource = self
         
-        resultTableView.register(UINib(nibName: WeatherInformationUITableViewCell.ReuseIdentifier, bundle: Bundle.main), forCellReuseIdentifier: WeatherInformationUITableViewCell.ReuseIdentifier)
+        resultTableView.register(UINib(nibName: WeatherInformationUITableViewCell.ReuseIdentifier, bundle: .module), forCellReuseIdentifier: WeatherInformationUITableViewCell.ReuseIdentifier)
     }
     
     func changeViewState(_ viewState: ViewState) {

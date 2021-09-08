@@ -29,7 +29,7 @@ class WeatherInformationUITableViewCell: UITableViewCell {
         hoursCollectionView.delegate = self
         hoursCollectionView.dataSource = self
         
-        hoursCollectionView.register(UINib(nibName: HourlyDataCollectionViewCell.ReuseIdentifier, bundle: Bundle.main), forCellWithReuseIdentifier: HourlyDataCollectionViewCell.ReuseIdentifier)
+        hoursCollectionView.register(UINib(nibName: HourlyDataCollectionViewCell.ReuseIdentifier, bundle: .module), forCellWithReuseIdentifier: HourlyDataCollectionViewCell.ReuseIdentifier)
     }
 }
 
