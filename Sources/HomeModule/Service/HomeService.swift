@@ -16,7 +16,7 @@ protocol HomeServiceProtocol {
     func fetchWeatherData(latitude: Double, longitude: Double)
 }
 
-protocol HomeApi {
+public protocol HomeApi {
     func fetchWeatherDataWithCityName(cityName: String, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void)
     func fetchWeatherDataWithCoordinates(latitude: Double, longitude: Double, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void)
 }
@@ -25,7 +25,6 @@ protocol HomeServiceOutputProtocol {
     func onFetchWeatherInformationSuccess(response: WeatherInformationResponseModel)
     func onFetchWeatherInformationFailure(error: Error)
 }
-
 
 final class HomeService: HomeServiceProtocol {
     

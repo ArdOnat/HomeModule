@@ -9,7 +9,7 @@ import CoreModule
 
 public final class HomePageModuleBuilder {
     
-    static func generate(homeApi: HomeApi) -> HomeViewController {
+    public static func generate(homeApi: HomeApi) -> HomeViewController {
         let wireframe: HomeWireframeProtocol = HomeWireframe()
         var service: HomeServiceProtocol = HomeService(homeApi: homeApi)
         let interactor: HomeInteractor = HomeInteractor(service: service)
