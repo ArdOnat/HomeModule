@@ -42,14 +42,12 @@ final class HomePresenter: HomePresenterProtocol {
     
     // MARK: Life Cycle
     func viewDidLoad() {
-        //DispatchQueue.main.async {
-            self.view?.changeViewState(.loading)
-            self.view?.setupSearchBar()
-            self.view?.setupTableView()
-            self.view?.setupGeoLocation()
-            self.view?.setupActivityIndicator()
-            self.view?.showActivityIndicator(true)
-        //}
+        self.view?.changeViewState(.loading)
+        self.view?.setupSearchBar()
+        self.view?.setupTableView()
+        self.view?.setupGeoLocation()
+        self.view?.setupActivityIndicator()
+        self.view?.showActivityIndicator(true)
     }
     
     func didUpdateLocations(latitude: Double, longitude: Double) {
@@ -57,19 +55,15 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func didSearchBarSearchButtonClicked(cityName: String) {
-        //DispatchQueue.main.async {
-            self.view?.changeViewState(.loading)
-            self.view?.endSearchBarEditing()
-            self.view?.showActivityIndicator(true)
-        //}
+        self.view?.changeViewState(.loading)
+        self.view?.endSearchBarEditing()
+        self.view?.showActivityIndicator(true)
         
         interactor.fetchWeatherData(with: cityName)
     }
     
     func scrollViewDidScroll() {
-        DispatchQueue.main.async {
-            self.view?.endSearchBarEditing()
-        }
+        self.view?.endSearchBarEditing()
     }
 }
 
