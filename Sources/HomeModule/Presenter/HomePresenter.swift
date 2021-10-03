@@ -11,7 +11,7 @@ import Foundation
 protocol HomePresenterProtocol: AnyObject {
     var view: HomeViewProtocol? { get set }
     var interactor: HomeInteractorProtocol { get }
-    var wireframe: HomeWireframeProtocol { get }
+    var wireframe: HomeNavigation { get }
     
     var weatherInformationList: [[CountryWeatherInformationModel]] { get set }
     var cityName: String { get set }
@@ -27,7 +27,7 @@ final class HomePresenter: HomePresenterProtocol {
     // MARK: Internal properties
     var view: HomeViewProtocol?
     let interactor: HomeInteractorProtocol
-    let wireframe: HomeWireframeProtocol
+    let wireframe: HomeNavigation
     var weatherData: WeatherInformationResponseModel?
     
     var weatherInformationList: [[CountryWeatherInformationModel]] = []
@@ -35,7 +35,7 @@ final class HomePresenter: HomePresenterProtocol {
 
     // MARK: Initializer
     init(interactor: HomeInteractorProtocol,
-         wireframe: HomeWireframeProtocol) {
+         wireframe: HomeNavigation) {
         self.interactor = interactor
         self.wireframe = wireframe
     }

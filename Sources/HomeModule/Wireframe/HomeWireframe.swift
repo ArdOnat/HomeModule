@@ -8,10 +8,19 @@
 
 import UIKit
 
-protocol HomeWireframeProtocol {
-    
+public protocol HomeNavigation {
+    func routeToDetail()
 }
 
-final class HomeWireframe: HomeWireframeProtocol {
+final class HomeWireframe: HomeNavigation {
 
+    private let homeNavigation: HomeNavigation
+    
+    init(homeNavigation: HomeNavigation) {
+        self.homeNavigation = homeNavigation
+    }
+    
+    func routeToDetail() {
+        homeNavigation.routeToDetail()
+    }
 }
