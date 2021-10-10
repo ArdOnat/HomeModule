@@ -25,6 +25,9 @@ let package = Package(
             dependencies: ["CoreModule"]),
         .testTarget(
             name: "HomeModuleTests",
-            dependencies: ["HomeModule"]),
+            dependencies: ["HomeModule"],
+        resources: [
+            .process("MockforecastResponse.json")
+        ])
     ]
 )
