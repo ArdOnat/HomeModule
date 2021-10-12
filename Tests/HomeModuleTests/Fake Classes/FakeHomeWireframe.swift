@@ -8,11 +8,13 @@
 
 @testable import HomeModule
 
-class FakeHomeWireframe: HomeWireframeProtocol {
+class FakeHomeWireframe: HomeNavigation {
+    
     
     // MARK: - Properties
     
     // MARK: - Test Properties
+    var didRouteToDetail: Bool = false
     
     // MARK: - Initializer
     init() {
@@ -21,6 +23,10 @@ class FakeHomeWireframe: HomeWireframeProtocol {
     
     // MARK: - Helpers
     func resetFlags() {
-        
+        didRouteToDetail = false
+    }
+    
+    func routeToDetail() {
+        didRouteToDetail = true
     }
 }

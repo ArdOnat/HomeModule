@@ -13,13 +13,13 @@ import XCTest
 class HomeWireFrameTests: XCTestCase {
 
     // MARK: - Properties
-    var wireframe: HomeWireframeProtocol!
+    var wireframe: HomeNavigation!
     
     // MARK: - Life Cycle
     override func setUp() {
         super.setUp()
         
-        wireframe = HomeWireframe()
+        wireframe = HomeWireframe(homeNavigation: FakeHomeWireframe())
     }
     
     override func tearDown() {

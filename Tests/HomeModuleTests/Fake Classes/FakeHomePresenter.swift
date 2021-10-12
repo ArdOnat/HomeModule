@@ -13,7 +13,7 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
     // MARK: - Properties
     weak var view: HomeViewProtocol?
     var interactor: HomeInteractorProtocol
-    var wireframe: HomeWireframeProtocol
+    var wireframe: HomeNavigation
     var weatherInformationList: [[CountryWeatherInformationModel]]
     var cityName: String
     
@@ -26,7 +26,7 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
     var didOnFetchWeatherInformationFailureCalled: Bool = false
     
     // MARK: - Initializers
-    required init(interactor: HomeInteractorProtocol, wireframe: HomeWireframeProtocol) {
+    required init(interactor: HomeInteractorProtocol, wireframe: HomeNavigation) {
         self.interactor = interactor
         self.wireframe = wireframe
         self.weatherInformationList = []
