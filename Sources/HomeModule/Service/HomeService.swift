@@ -8,22 +8,9 @@
 
 import CoreModule
 
-protocol HomeServiceProtocol {
-    var homeApi: HomeApi { get }
-    var output: HomeServiceOutputProtocol? { get set }
-    
-    func fetchWeatherData(cityName: String)
-    func fetchWeatherData(latitude: Double, longitude: Double)
-}
-
 public protocol HomeApi {
     func fetchWeatherDataWithCityName(cityName: String, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void)
     func fetchWeatherDataWithCoordinates(latitude: Double, longitude: Double, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void)
-}
-
-protocol HomeServiceOutputProtocol {
-    func onFetchWeatherInformationSuccess(response: WeatherInformationResponseModel)
-    func onFetchWeatherInformationFailure(error: Error)
 }
 
 final class HomeService: HomeServiceProtocol {

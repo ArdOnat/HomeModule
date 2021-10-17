@@ -7,20 +7,6 @@
 //
 
 import Foundation
-
-protocol HomePresenterProtocol: AnyObject {
-    var view: HomeViewProtocol? { get set }
-    var interactor: HomeInteractorProtocol { get }
-    var wireframe: HomeNavigation { get }
-    
-    var weatherInformationList: [[CountryWeatherInformationModel]] { get set }
-    var cityName: String { get set }
-    
-    func viewDidLoad()
-    func didUpdateLocations(latitude: Double, longitude: Double)
-    func didSearchBarSearchButtonClicked(cityName: String)
-    func scrollViewDidScroll()
-}
     
 final class HomePresenter: HomePresenterProtocol {
 

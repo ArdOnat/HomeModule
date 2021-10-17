@@ -8,14 +8,6 @@
 
 import CoreModule
 
-protocol HomeInteractorProtocol {
-    var service: HomeServiceProtocol { get }
-    var output: HomeInteractorOutputProtocol? { get set }
-    
-    func fetchWeatherData(with cityName: String)
-    func fetchWeatherData(latitude: Double, longitude: Double)
-}
-
 protocol HomeInteractorOutputProtocol {
     func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformationModel]], cityName: String)
     func onFetchWeatherInformationFailure(errorMessage: String)

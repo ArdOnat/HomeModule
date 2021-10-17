@@ -16,16 +16,6 @@ enum ViewState {
     case failure(errorMessage: String)
 }
 
-protocol HomeViewProtocol: AnyObject {
-    func changeViewState(_ viewState: ViewState)
-    func setupSearchBar()
-    func setupTableView()
-    func setupActivityIndicator()
-    func setupGeoLocation()
-    func endSearchBarEditing()
-    func showActivityIndicator(_ shouldShow: Bool)
-}
-
 public final class HomeViewController: UIViewController {
 
     // MARK: IBOutlets
