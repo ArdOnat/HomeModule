@@ -19,17 +19,17 @@ enum ViewState {
 public final class HomeViewController: UIViewController {
 
     // MARK: IBOutlets
-    @IBOutlet private weak var searchBar: UISearchBar!
-    @IBOutlet private weak var informationView: UIView!
-    @IBOutlet private weak var seperatorView: UIView!
-    @IBOutlet private weak var locationNameLabel: UILabel!
-    @IBOutlet private weak var locationWeatherInformationLabel: UILabel!
-    @IBOutlet private weak var weatherSitatuationImageView: UIImageView!
-    @IBOutlet private weak var currentTemperatureLabel: UILabel!
-    @IBOutlet private weak var lowTemperatureLabel: UILabel!
-    @IBOutlet private weak var highTemperatureLabel: UILabel!
-    @IBOutlet private weak var humidityLabel: UILabel!
-    @IBOutlet private weak var resultTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var informationView: UIView!
+    @IBOutlet weak var seperatorView: UIView!
+    @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var locationWeatherInformationLabel: UILabel!
+    @IBOutlet weak var weatherSitatuationImageView: UIImageView!
+    @IBOutlet weak var currentTemperatureLabel: UILabel!
+    @IBOutlet weak var lowTemperatureLabel: UILabel!
+    @IBOutlet weak var highTemperatureLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var resultTableView: UITableView!
     
     // MARK: Private properties
     private let locationManager: CLLocationManager = CLLocationManager()
