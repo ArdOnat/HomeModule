@@ -4,8 +4,8 @@
         "main": {
             "temp": 10,
             "temp_min": 10,
-            "temp_max": 10,
-            "humidity": 10
+            "temp_max": 11,
+            "humidity": 12
         },
         "weather": [],
         "dt_txt": "2021-06-20 15:00:00"

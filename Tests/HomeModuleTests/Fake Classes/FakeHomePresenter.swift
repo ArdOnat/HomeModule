@@ -33,11 +33,11 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
         self.cityName = ""
     }
     
-    init() {
+    init(weatherInformationList: [[CountryWeatherInformationModel]] = [], cityName: String = "") {
         self.interactor = FakeHomeInteractor()
         self.wireframe = FakeHomeWireframe()
-        self.weatherInformationList = []
-        self.cityName = ""
+        self.weatherInformationList = weatherInformationList
+        self.cityName = cityName
     }
     
     func viewDidLoad() {
