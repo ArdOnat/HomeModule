@@ -43,8 +43,13 @@ class HomePresenterTests: XCTestCase {
         XCTAssertTrue(fakeView.didSetupSearchBarCalled)
         XCTAssertTrue(fakeView.didSetupTableViewCalled)
         XCTAssertTrue(fakeView.didSetupGeoLocationCalled)
-        XCTAssertTrue(fakeView.didSetupActivityIndicatorCalled)
         XCTAssertTrue(fakeView.didShowActivityIndicatorTrueCalled)
+    }
+    
+    func testDidViewDidLoadSetupActivityIndicator() {
+        presenter.viewDidLayoutSubviews()
+        
+        XCTAssertTrue(fakeView.didSetupActivityIndicatorCalled)
     }
     
     func testDidUpdateLocationsCalledFetchWeatherData() {

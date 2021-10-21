@@ -28,6 +28,7 @@ protocol HomePresenterProtocol: AnyObject {
     var cityName: String { get set }
     
     func viewDidLoad()
+    func viewDidLayoutSubviews()
     func didUpdateLocations(latitude: Double, longitude: Double)
     func didSearchBarSearchButtonClicked(cityName: String)
     func scrollViewDidScroll()

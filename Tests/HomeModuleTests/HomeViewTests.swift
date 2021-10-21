@@ -18,7 +18,9 @@ class HomeViewTests: XCTestCase {
         super.setUp()
 
     }
+    
     // MARK: - Tests
+    
     func testInitFromCoder() {
         let view = HomeViewController(coder: NSCoder())
         XCTAssertNil(view)

@@ -32,8 +32,11 @@ final class HomePresenter: HomePresenterProtocol {
         self.view?.setupSearchBar()
         self.view?.setupTableView()
         self.view?.setupGeoLocation()
-        self.view?.setupActivityIndicator()
         self.view?.showActivityIndicator(true)
+    }
+    
+    func viewDidLayoutSubviews() {
+        self.view?.setupActivityIndicator()
     }
     
     func didUpdateLocations(latitude: Double, longitude: Double) {

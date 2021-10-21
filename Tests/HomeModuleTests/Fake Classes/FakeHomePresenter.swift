@@ -19,6 +19,7 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
     
     // MARK: - Test Properties
     var didViewDidLoadCalled: Bool = false
+    var didViewDidLayoutSubviewsCalled: Bool = false
     var didUpdateLocationsCalled: Bool = false
     var didSearchbarSearchButtonClickedCalled: Bool = false
     var didScrollViewDidScrollCalled: Bool = false
@@ -44,6 +45,10 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
         self.didViewDidLoadCalled = true
     }
     
+    func viewDidLayoutSubviews() {
+        self.didViewDidLayoutSubviewsCalled = true
+    }
+    
     func didUpdateLocations(latitude: Double, longitude: Double) {
         self.didUpdateLocationsCalled = true
     }
@@ -67,6 +72,7 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
     // MARK: - Helpers
     func resetFlags() {
         self.didViewDidLoadCalled = false
+        self.didViewDidLayoutSubviewsCalled = false
         self.didUpdateLocationsCalled = false
         self.didSearchbarSearchButtonClickedCalled = false
         self.didScrollViewDidScrollCalled = false

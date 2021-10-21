@@ -55,6 +55,11 @@ public final class HomeViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
     }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        presenter.viewDidLayoutSubviews()
+    }
 }
 
 extension HomeViewController: HomeViewProtocol {
