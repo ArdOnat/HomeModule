@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,13 +25,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K6B-2L-deZ">
-                        <rect key="frame" x="105" y="36.5" width="128" height="128"/>
+                        <rect key="frame" x="96" y="36.5" width="146" height="146"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="K6B-2L-deZ" secondAttribute="height" multiplier="1:1" id="dQ9-CM-4Ut"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bev-vx-wmJ">
-                        <rect key="frame" x="119.5" y="172.5" width="99" height="20.5"/>
+                        <rect key="frame" x="119.5" y="190.5" width="99" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlM-1k-ygi">
                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -54,8 +54,8 @@
                     <constraint firstItem="bev-vx-wmJ" firstAttribute="centerX" secondItem="Tnd-ht-YXk" secondAttribute="centerX" id="Qns-NI-MNW"/>
                     <constraint firstItem="K6B-2L-deZ" firstAttribute="top" secondItem="mrN-5K-aLu" secondAttribute="bottom" constant="8" id="WgH-oZ-R1p"/>
                     <constraint firstItem="bev-vx-wmJ" firstAttribute="top" secondItem="K6B-2L-deZ" secondAttribute="bottom" constant="8" id="efC-a3-tn0"/>
+                    <constraint firstAttribute="bottom" secondItem="bev-vx-wmJ" secondAttribute="bottom" constant="16" id="nGJ-a7-KYv"/>
                     <constraint firstItem="mrN-5K-aLu" firstAttribute="centerX" secondItem="Tnd-ht-YXk" secondAttribute="centerX" id="nvd-cM-xHA"/>
-                    <constraint firstItem="K6B-2L-deZ" firstAttribute="height" secondItem="Tnd-ht-YXk" secondAttribute="height" multiplier="0.563877" id="wUV-nO-0uM"/>
                     <constraint firstItem="bev-vx-wmJ" firstAttribute="height" secondItem="Tnd-ht-YXk" secondAttribute="height" multiplier="0.0903084" id="zop-zo-mxF"/>
                 </constraints>
             </collectionViewCellContentView>
