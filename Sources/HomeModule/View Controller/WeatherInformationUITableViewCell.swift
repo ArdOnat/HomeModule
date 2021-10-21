@@ -36,7 +36,7 @@ class WeatherInformationUITableViewCell: UITableViewCell {
 extension WeatherInformationUITableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.layer.bounds.width / 2.5, height: collectionView.layer.bounds.height)
+        return CGSize(width: collectionView.layer.bounds.width / 2.5, height: 117)
     }
 }
 
