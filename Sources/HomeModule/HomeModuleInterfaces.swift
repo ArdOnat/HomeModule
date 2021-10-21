@@ -15,6 +15,10 @@ protocol HomeViewProtocol: AnyObject {
     func showActivityIndicator(_ shouldShow: Bool)
 }
 
+public protocol HomeViewOperationHandler {
+    func showToast(with errorMessage: String)
+}
+
 protocol HomePresenterProtocol: AnyObject {
     var view: HomeViewProtocol? { get set }
     var interactor: HomeInteractorProtocol { get }
@@ -48,4 +52,8 @@ protocol HomeServiceProtocol {
 protocol HomeServiceOutputProtocol {
     func onFetchWeatherInformationSuccess(response: WeatherInformationResponseModel)
     func onFetchWeatherInformationFailure(error: Error)
+}
+
+public protocol HomeNavigation {
+    func routeToDetail()
 }

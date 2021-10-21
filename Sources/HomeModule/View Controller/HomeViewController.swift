@@ -37,10 +37,12 @@ public final class HomeViewController: UIViewController {
     
     // MARK: Internal properties
     let presenter: HomePresenterProtocol
+    let viewOperationHandler: HomeViewOperationHandler
     
     // MARK: Initializers
-    init(presenter: HomePresenterProtocol) {
+    init(presenter: HomePresenterProtocol, viewOperationHandler: HomeViewOperationHandler) {
         self.presenter = presenter
+        self.viewOperationHandler = viewOperationHandler
         super.init(nibName: nil, bundle: .module)
     }
     
@@ -92,7 +94,7 @@ extension HomeViewController: HomeViewProtocol {
             informationView.isHidden = true
             resultTableView.isHidden = true
             seperatorView.isHidden = true
-            self.showToast(message: errorMessage, font: .systemFont(ofSize: 12))
+            viewOperationHandler.showToast(with: errorMessage)
         }
     }
     

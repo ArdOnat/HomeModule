@@ -8,10 +8,6 @@
 
 import UIKit
 
-public protocol HomeNavigation {
-    func routeToDetail()
-}
-
 final class HomeWireframe: HomeNavigation {
 
     private let homeNavigation: HomeNavigation
