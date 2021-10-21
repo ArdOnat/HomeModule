@@ -136,7 +136,7 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.height / 1.2
+        return tableView.bounds.height / 1.5
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
