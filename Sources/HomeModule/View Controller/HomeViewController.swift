@@ -72,6 +72,7 @@ extension HomeViewController: HomeViewProtocol {
     func setupTableView() {
         resultTableView.delegate = self
         resultTableView.dataSource = self
+        resultTableView.estimatedRowHeight = 80
         
         resultTableView.register(UINib(nibName: WeatherInformationUITableViewCell.ReuseIdentifier, bundle: .module), forCellReuseIdentifier: WeatherInformationUITableViewCell.ReuseIdentifier)
     }
@@ -135,7 +136,7 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.height / 2.2
+        return UITableView.automaticDimension
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
