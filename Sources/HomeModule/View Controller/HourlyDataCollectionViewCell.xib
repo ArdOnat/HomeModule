@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrN-5K-aLu">
-                        <rect key="frame" x="148.5" y="8" width="41.5" height="20.5"/>
+                        <rect key="frame" x="148.5" y="8" width="41.5" height="28.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="K6B-2L-deZ">
-                        <rect key="frame" x="96" y="36.5" width="146" height="146"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K6B-2L-deZ">
+                        <rect key="frame" x="100" y="44.5" width="138" height="138"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="K6B-2L-deZ" secondAttribute="height" multiplier="1:1" id="dQ9-CM-4Ut"/>
                         </constraints>
@@ -56,6 +56,7 @@
                     <constraint firstItem="bev-vx-wmJ" firstAttribute="top" secondItem="K6B-2L-deZ" secondAttribute="bottom" constant="8" id="efC-a3-tn0"/>
                     <constraint firstAttribute="bottom" secondItem="bev-vx-wmJ" secondAttribute="bottom" constant="16" id="nGJ-a7-KYv"/>
                     <constraint firstItem="mrN-5K-aLu" firstAttribute="centerX" secondItem="Tnd-ht-YXk" secondAttribute="centerX" id="nvd-cM-xHA"/>
+                    <constraint firstItem="K6B-2L-deZ" firstAttribute="centerY" secondItem="Tnd-ht-YXk" secondAttribute="centerY" id="qQS-eS-EWe"/>
                     <constraint firstItem="bev-vx-wmJ" firstAttribute="height" secondItem="Tnd-ht-YXk" secondAttribute="height" multiplier="0.0903084" id="zop-zo-mxF"/>
                 </constraints>
             </collectionViewCellContentView>
