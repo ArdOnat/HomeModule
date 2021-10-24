@@ -11,15 +11,10 @@
 import XCTest
 
 class HomeWireFrameTests: XCTestCase {
-
-    // MARK: - Properties
-    var wireframe: HomeNavigation!
     
     // MARK: - Life Cycle
     override func setUp() {
         super.setUp()
-        
-        wireframe = HomeWireframe(homeNavigation: FakeHomeWireframe())
     }
     
     override func tearDown() {
@@ -27,4 +22,21 @@ class HomeWireFrameTests: XCTestCase {
     }
     
     // MARK: - Tests
+    func testRouteToDetailCallsNavigationHandlerRouteToDetail() {
+        // Given
+        let fakeHomeNavigationHandler = FakeHomeWireframe()
+        let sut = makeSUT(homeNavigationHandler: fakeHomeNavigationHandler)
+        
+        // When
+        sut.routeToDetail()
+        
+        // Then
+        XCTAssertTrue(fakeHomeNavigationHandler.didRouteToDetail)
+    }
+    
+    // MARK: - Helpers
+    private func makeSUT(homeNavigationHandler: HomeNavigation) -> HomeWireframe {
+        let sut = HomeWireframe(homeNavigationHandler: homeNavigationHandler)
+        return sut
+    }
 }

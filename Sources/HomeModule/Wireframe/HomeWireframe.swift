@@ -10,13 +10,13 @@ import UIKit
 
 final class HomeWireframe: HomeNavigation {
 
-    private let homeNavigation: HomeNavigation
+    private let homeNavigationHandler: HomeNavigation
     
-    init(homeNavigation: HomeNavigation) {
-        self.homeNavigation = homeNavigation
+    init(homeNavigationHandler: HomeNavigation) {
+        self.homeNavigationHandler = homeNavigationHandler
     }
     
     func routeToDetail() {
-        homeNavigation.routeToDetail()
+        homeNavigationHandler.routeToDetail()
     }
 }

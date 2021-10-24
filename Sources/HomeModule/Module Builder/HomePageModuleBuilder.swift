@@ -9,8 +9,8 @@ import CoreModule
 
 public final class HomePageModuleBuilder {
     
-    public static func generate(homeApi: HomeApi, homeNavigation: HomeNavigation, viewOperationHandler: HomeViewOperationHandler) -> HomeViewController {
-        let wireframe: HomeNavigation = HomeWireframe(homeNavigation: homeNavigation)
+    public static func generate(homeApi: HomeApi, homeNavigationHandler: HomeNavigation, viewOperationHandler: HomeViewOperationHandler) -> HomeViewController {
+        let wireframe: HomeNavigation = HomeWireframe(homeNavigationHandler: homeNavigationHandler)
         var service: HomeServiceProtocol = HomeService(homeApi: homeApi)
         let interactor: HomeInteractor = HomeInteractor(service: service)
         let presenter: HomePresenter = HomePresenter(interactor: interactor, wireframe: wireframe, viewOperationHandler: viewOperationHandler)
