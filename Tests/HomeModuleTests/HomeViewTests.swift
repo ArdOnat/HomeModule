@@ -29,8 +29,7 @@ class HomeViewTests: XCTestCase {
     func testChangeViewStateToFailureSetsUpView() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.failure(errorMessage: "Error Message"))
@@ -46,8 +45,7 @@ class HomeViewTests: XCTestCase {
         // Given
         let homeViewOperationHandler = FakeHomeViewOperationHandler()
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy, viewOperationHandler: homeViewOperationHandler)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy, viewOperationHandler: homeViewOperationHandler)
         
         // When
         sut.changeViewState(.failure(errorMessage: "Error Message"))
@@ -59,8 +57,7 @@ class HomeViewTests: XCTestCase {
     func testChangeViewStateToLoadingSetsUpView() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.loading)
@@ -76,7 +73,6 @@ class HomeViewTests: XCTestCase {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
         let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
         
         // When
         sut.changeViewState(.success)
@@ -91,8 +87,7 @@ class HomeViewTests: XCTestCase {
     func testLocationNameLabelText() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.success)
@@ -104,8 +99,7 @@ class HomeViewTests: XCTestCase {
     func testLocationWeatherInformationLabelText() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.success)
@@ -117,9 +111,8 @@ class HomeViewTests: XCTestCase {
     func testNumberOfRowsInTableView() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
-        
+        let sut = makeSUT(presenter: &homePresenterSpy)
+
         // When
         sut.changeViewState(.success)
         
@@ -130,8 +123,7 @@ class HomeViewTests: XCTestCase {
     func testCurrentTemperatureLabelText() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.success)
@@ -143,7 +135,7 @@ class HomeViewTests: XCTestCase {
     func testLowTemperatureLabelText() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
+        let sut = makeSUT(presenter: &homePresenterSpy)
         _ = sut.view
         
         // When
@@ -156,8 +148,7 @@ class HomeViewTests: XCTestCase {
     func testHighTemperatureLabelText() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.success)
@@ -169,8 +160,7 @@ class HomeViewTests: XCTestCase {
     func testHumidityLabelText() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = self.makeSUT(presenter: &homePresenterSpy)
-        _ = sut.view
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.success)
@@ -196,6 +186,7 @@ class HomeViewTests: XCTestCase {
     
     private func makeSUT(presenter: inout FakeHomePresenter, viewOperationHandler: HomeViewOperationHandler = FakeHomeViewOperationHandler()) -> HomeViewController {
         let viewController = HomeViewController(presenter: presenter, viewOperationHandler: viewOperationHandler)
+        _ = viewController.view
         presenter.view = viewController
         return viewController
     }
