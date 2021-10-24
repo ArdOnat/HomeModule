@@ -19,7 +19,7 @@ class HomePageRequestTests: XCTestCase {
     // MARK: - Life Cycle
     override func setUp() {
         super.setUp()
-        requestWithCityName = HomePageRequest(request: HomePageRequest.Request.fetchWeatherDataWithCityName(cityName: "a"), apiEnvironment: ApiEnvironment(environmentType: MockWeatherForecastEnvironment.prod))
+        requestWithCityName = HomePageRequest(request: HomePageRequest.Request.fetchWeatherDataWithCityName(cityName: "CityName"), apiEnvironment: ApiEnvironment(environmentType: MockWeatherForecastEnvironment.prod))
         
         requestWithCoordinates = HomePageRequest(request: HomePageRequest.Request.fetchWeatherDataWithCoordinates(latitude: 30, longitude: 32), apiEnvironment: ApiEnvironment(environmentType: MockWeatherForecastEnvironment.prod))
     }
@@ -29,7 +29,7 @@ class HomePageRequestTests: XCTestCase {
     }
     
     func testCityNameRequestParameters() {
-        XCTAssertEqual(requestWithCityName.urlParameters!["q"] as! String, "a")
+        XCTAssertEqual(requestWithCityName.urlParameters!["q"] as! String, "CityName")
     }
     
     func testCityNameRequestBodyParametersIsNil() {

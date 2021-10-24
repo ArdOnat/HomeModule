@@ -31,7 +31,7 @@ class HomeServiceTests: XCTestCase {
     // MARK: - Tests
     
     func testFetchWeatherDataWithCityNameIsSuccessful() {
-        service.fetchWeatherData(cityName: "")
+        service.fetchWeatherData(cityName: "CityName")
         
         let output = service.output as! FakeHomeServiceOutputProtocol
         

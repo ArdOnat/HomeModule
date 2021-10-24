@@ -12,8 +12,8 @@ class WeatherInformationUITableViewCell: UITableViewCell {
     static let ReuseIdentifier: String = "WeatherInformationUITableViewCell"
     
     // MARK: IBOutlets
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var hoursCollectionView: UICollectionView!
+    @IBOutlet private(set) weak var dateLabel: UILabel!
+    @IBOutlet private(set) weak var hoursCollectionView: UICollectionView!
     
     var informationModel: [CountryWeatherInformation]? {
         didSet {

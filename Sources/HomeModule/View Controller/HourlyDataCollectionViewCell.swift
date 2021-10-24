@@ -11,10 +11,10 @@ class HourlyDataCollectionViewCell: UICollectionViewCell {
 
     static let ReuseIdentifier: String = "HourlyDataCollectionViewCell"
     
-    @IBOutlet private weak var hourLabel: UILabel!
-    @IBOutlet private weak var weatherSituationImageView: UIImageView!
-    @IBOutlet private weak var lowTemperatureLabel: UILabel!
-    @IBOutlet private weak var highTemperatureLabel: UILabel!
+    @IBOutlet private(set) weak var hourLabel: UILabel!
+    @IBOutlet private(set) weak var weatherSituationImageView: UIImageView!
+    @IBOutlet weak var lowTemperatureLabel: UILabel!
+    @IBOutlet weak var highTemperatureLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

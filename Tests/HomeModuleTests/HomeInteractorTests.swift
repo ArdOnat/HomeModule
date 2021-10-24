@@ -36,7 +36,7 @@ class HomeInteractorTests: XCTestCase {
     
     func testDidFetchWeatherDataWithCityNameAndPassData() {
         interactor.output = fakeInteractorOutput
-        interactor.fetchWeatherData(with: "city_name")
+        interactor.fetchWeatherData(with: "CityName")
         
         // Service receives the request
         
