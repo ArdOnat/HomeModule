@@ -27,12 +27,12 @@ class LocalApiClient {
 }
 
 extension LocalApiClient: HomeApi {
-    func fetchWeatherDataWithCityName(cityName: String, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void) {
+    func fetchWeatherDataWithCityName(cityName: String, completion: @escaping (Result<WeatherInformationResponse, NetworkError>) -> Void) {
         let request = HomePageRequest(request: .fetchWeatherDataWithCityName(cityName: cityName), apiEnvironment: ApiEnvironment(environmentType: MockWeatherForecastEnvironment.prod))
         self.request(request, completion: completion)
     }
     
-    func fetchWeatherDataWithCoordinates(latitude: Double, longitude: Double, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void) {
+    func fetchWeatherDataWithCoordinates(latitude: Double, longitude: Double, completion: @escaping (Result<WeatherInformationResponse, NetworkError>) -> Void) {
         let request = HomePageRequest(request: .fetchWeatherDataWithCoordinates(latitude: latitude, longitude: longitude), apiEnvironment: ApiEnvironment(environmentType: MockWeatherForecastEnvironment.prod))
         self.request(request, completion: completion)
     }

@@ -14,16 +14,19 @@ final class HomePresenter: HomePresenterProtocol {
     var view: HomeViewProtocol?
     let interactor: HomeInteractorProtocol
     let wireframe: HomeNavigation
-    var weatherData: WeatherInformationResponseModel?
+    let viewOperationHandler: HomeViewOperationHandler?
     
-    var weatherInformationList: [[CountryWeatherInformationModel]] = []
+    var weatherData: WeatherInformationResponse?
+    var weatherInformationList: [[CountryWeatherInformation]] = []
     var cityName: String = ""
 
     // MARK: Initializer
     init(interactor: HomeInteractorProtocol,
-         wireframe: HomeNavigation) {
+         wireframe: HomeNavigation,
+         viewOperationHandler: HomeViewOperationHandler? = nil) {
         self.interactor = interactor
         self.wireframe = wireframe
+        self.viewOperationHandler = viewOperationHandler
     }
     
     // MARK: Life Cycle
@@ -54,11 +57,15 @@ final class HomePresenter: HomePresenterProtocol {
     func scrollViewDidScroll() {
         self.view?.endSearchBarEditing()
     }
+    
+    func viewSetupCompletedWithFailure(errorMessage: String) {
+        viewOperationHandler?.showToast(with: errorMessage)
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
     
-    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformationModel]], cityName: String) {
+    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformation]], cityName: String) {
         self.weatherInformationList = weatherInformationList
         self.cityName = cityName
         

@@ -20,7 +20,7 @@ class FakeHomeServiceOutputProtocol: HomeServiceOutputProtocol {
         
     }
     
-    func onFetchWeatherInformationSuccess(response: WeatherInformationResponseModel) {
+    func onFetchWeatherInformationSuccess(response: WeatherInformationResponse) {
         self.didOnFetchWeatherInformationSuccessCalled = true
     }
     

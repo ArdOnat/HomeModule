@@ -21,7 +21,7 @@ class HourlyDataCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configure(informationModel: CountryWeatherInformationModel) {
+    func configure(informationModel: CountryWeatherInformation) {
         if let clock = informationModel.dt_txt.split(separator: " ").last, let hour = clock.split(separator: ":").first {
             hourLabel.text = "\(hour)"
         }

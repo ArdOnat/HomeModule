@@ -26,6 +26,27 @@ class HomeViewTests: XCTestCase {
         XCTAssertNil(view)
     }
     
+    func testViewDidLoadCallsPresenterViewDidLoad() {
+        // Given
+        var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
+        makeSUT(presenter: &homePresenterSpy)
+        
+        // Then
+        XCTAssertTrue(homePresenterSpy.didViewDidLoadCalled)
+    }
+     
+    func testViewDidLayoutSubViewsCallsPresenterDidLayoutSubviews() {
+        // Given
+        var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
+        let sut =  makeSUT(presenter: &homePresenterSpy)
+
+        // When
+        sut.viewDidLayoutSubviews()
+        
+        // Then
+        XCTAssertTrue(homePresenterSpy.didViewDidLayoutSubviewsCalled)
+    }
+    
     func testChangeViewStateToFailureSetsUpView() {
         // Given
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
@@ -43,15 +64,14 @@ class HomeViewTests: XCTestCase {
     
     func testChangeViewStateToFailureShowsToast() {
         // Given
-        let homeViewOperationHandler = FakeHomeViewOperationHandler()
         var homePresenterSpy: FakeHomePresenter = FakeHomePresenter(weatherInformationList: [fetchMockData()!.list], cityName: fetchMockData()!.city.name)
-        let sut = makeSUT(presenter: &homePresenterSpy, viewOperationHandler: homeViewOperationHandler)
+        let sut = makeSUT(presenter: &homePresenterSpy)
         
         // When
         sut.changeViewState(.failure(errorMessage: "Error Message"))
         
         // Then
-        XCTAssertTrue(homeViewOperationHandler.didShowToastCalled)
+        XCTAssertTrue(homePresenterSpy.didViewSetupCompletedWithFailureCalled)
     }
     
     func testChangeViewStateToLoadingSetsUpView() {
@@ -169,8 +189,8 @@ class HomeViewTests: XCTestCase {
         XCTAssertEqual("12.0", sut.humidityLabel.text)
     }
     
-    private func fetchMockData() -> WeatherInformationResponseModel? {
-        var model: WeatherInformationResponseModel? = nil
+    private func fetchMockData() -> WeatherInformationResponse? {
+        var model: WeatherInformationResponse? = nil
         
         LocalApiClient().fetchWeatherDataWithCityName(cityName:  "") {
             result in
@@ -184,8 +204,8 @@ class HomeViewTests: XCTestCase {
         return model
     }
     
-    private func makeSUT(presenter: inout FakeHomePresenter, viewOperationHandler: HomeViewOperationHandler = FakeHomeViewOperationHandler()) -> HomeViewController {
-        let viewController = HomeViewController(presenter: presenter, viewOperationHandler: viewOperationHandler)
+    private func makeSUT(presenter: inout FakeHomePresenter) -> HomeViewController {
+        let viewController = HomeViewController(presenter: presenter)
         _ = viewController.view
         presenter.view = viewController
         return viewController

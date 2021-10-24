@@ -24,7 +24,7 @@ protocol HomePresenterProtocol: AnyObject {
     var interactor: HomeInteractorProtocol { get }
     var wireframe: HomeNavigation { get }
     
-    var weatherInformationList: [[CountryWeatherInformationModel]] { get set }
+    var weatherInformationList: [[CountryWeatherInformation]] { get set }
     var cityName: String { get set }
     
     func viewDidLoad()
@@ -32,6 +32,7 @@ protocol HomePresenterProtocol: AnyObject {
     func didUpdateLocations(latitude: Double, longitude: Double)
     func didSearchBarSearchButtonClicked(cityName: String)
     func scrollViewDidScroll()
+    func viewSetupCompletedWithFailure(errorMessage: String)
 }
 
 protocol HomeInteractorProtocol {
@@ -40,6 +41,11 @@ protocol HomeInteractorProtocol {
     
     func fetchWeatherData(with cityName: String)
     func fetchWeatherData(latitude: Double, longitude: Double)
+}
+
+protocol HomeInteractorOutputProtocol {
+    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformation]], cityName: String)
+    func onFetchWeatherInformationFailure(errorMessage: String)
 }
 
 protocol HomeServiceProtocol {
@@ -51,7 +57,7 @@ protocol HomeServiceProtocol {
 }
 
 protocol HomeServiceOutputProtocol {
-    func onFetchWeatherInformationSuccess(response: WeatherInformationResponseModel)
+    func onFetchWeatherInformationSuccess(response: WeatherInformationResponse)
     func onFetchWeatherInformationFailure(error: Error)
 }
 

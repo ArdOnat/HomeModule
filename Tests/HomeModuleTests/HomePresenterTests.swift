@@ -17,13 +17,14 @@ class HomePresenterTests: XCTestCase {
     
     let fakeInteractor = FakeHomeInteractor()
     let fakeWireframe = FakeHomeWireframe()
+    let fakeHomeViewOperationHandler = FakeHomeViewOperationHandler()
     let fakeView = FakeHomeView()
     
     // MARK: - Life Cycle
     override func setUp() {
         super.setUp()
         
-        presenter = HomePresenter(interactor: fakeInteractor, wireframe: fakeWireframe)
+        presenter = HomePresenter(interactor: fakeInteractor, wireframe: fakeWireframe, viewOperationHandler: fakeHomeViewOperationHandler)
         presenter.view = fakeView
     }
     
@@ -76,5 +77,11 @@ class HomePresenterTests: XCTestCase {
         presenter.scrollViewDidScroll()
         
         XCTAssertTrue(fakeView.didEndSearchBarEditingCalled)
+    }
+    
+    func testDidViewSetupCompletedWithFailureCallsViewOperationShowToast() {
+        presenter.viewSetupCompletedWithFailure(errorMessage: "Error Message")
+        
+        XCTAssertTrue(fakeHomeViewOperationHandler.didShowToastCalled)
     }
 }

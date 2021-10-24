@@ -21,7 +21,7 @@ class FakeHomeInteractorOutput: HomeInteractorOutputProtocol {
         
     }
     
-    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformationModel]], cityName: String) {
+    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformation]], cityName: String) {
         self.didOnFetchWeatherInformationSuccessCalled = true
     }
     

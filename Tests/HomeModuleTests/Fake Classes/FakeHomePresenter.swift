@@ -14,7 +14,7 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
     weak var view: HomeViewProtocol?
     var interactor: HomeInteractorProtocol
     var wireframe: HomeNavigation
-    var weatherInformationList: [[CountryWeatherInformationModel]]
+    var weatherInformationList: [[CountryWeatherInformation]]
     var cityName: String
     
     // MARK: - Test Properties
@@ -25,6 +25,7 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
     var didScrollViewDidScrollCalled: Bool = false
     var didOnFetchWeatherInformationSuccessCalled: Bool = false
     var didOnFetchWeatherInformationFailureCalled: Bool = false
+    var didViewSetupCompletedWithFailureCalled: Bool = false
     
     // MARK: - Initializers
     required init(interactor: HomeInteractorProtocol, wireframe: HomeNavigation) {
@@ -34,7 +35,7 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
         self.cityName = ""
     }
     
-    init(weatherInformationList: [[CountryWeatherInformationModel]] = [], cityName: String = "") {
+    init(weatherInformationList: [[CountryWeatherInformation]] = [], cityName: String = "") {
         self.interactor = FakeHomeInteractor()
         self.wireframe = FakeHomeWireframe()
         self.weatherInformationList = weatherInformationList
@@ -61,12 +62,16 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
         self.didScrollViewDidScrollCalled = true
     }
     
-    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformationModel]], cityName: String) {
+    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformation]], cityName: String) {
         self.didOnFetchWeatherInformationSuccessCalled = true
     }
     
     func onFetchWeatherInformationFailure(errorMessage: String) {
         self.didOnFetchWeatherInformationFailureCalled = true
+    }
+    
+    func viewSetupCompletedWithFailure(errorMessage: String) {
+        didViewSetupCompletedWithFailureCalled = true
     }
     
     // MARK: - Helpers
@@ -78,5 +83,6 @@ class FakeHomePresenter: HomePresenterProtocol, HomeInteractorOutputProtocol {
         self.didScrollViewDidScrollCalled = false
         self.didOnFetchWeatherInformationSuccessCalled = false
         self.didOnFetchWeatherInformationFailureCalled = false
+        didViewSetupCompletedWithFailureCalled = false
     }
 }

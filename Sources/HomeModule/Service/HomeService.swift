@@ -9,8 +9,8 @@
 import CoreModule
 
 public protocol HomeApi {
-    func fetchWeatherDataWithCityName(cityName: String, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void)
-    func fetchWeatherDataWithCoordinates(latitude: Double, longitude: Double, completion: @escaping (Result<WeatherInformationResponseModel, NetworkError>) -> Void)
+    func fetchWeatherDataWithCityName(cityName: String, completion: @escaping (Result<WeatherInformationResponse, NetworkError>) -> Void)
+    func fetchWeatherDataWithCoordinates(latitude: Double, longitude: Double, completion: @escaping (Result<WeatherInformationResponse, NetworkError>) -> Void)
 }
 
 final class HomeService: HomeServiceProtocol {
@@ -47,7 +47,7 @@ final class HomeService: HomeServiceProtocol {
 
 extension WeakRef: HomeServiceOutputProtocol where T: HomeServiceOutputProtocol {
     
-    func onFetchWeatherInformationSuccess(response: WeatherInformationResponseModel) {
+    func onFetchWeatherInformationSuccess(response: WeatherInformationResponse) {
         object?.onFetchWeatherInformationSuccess(response: response)
     }
     

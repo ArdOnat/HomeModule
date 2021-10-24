@@ -15,7 +15,7 @@ class WeatherInformationUITableViewCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var hoursCollectionView: UICollectionView!
     
-    var informationModel: [CountryWeatherInformationModel]? {
+    var informationModel: [CountryWeatherInformation]? {
         didSet {
             guard let firstInformationModel = informationModel?.first else { return }
             

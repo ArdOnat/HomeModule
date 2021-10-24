@@ -8,11 +8,6 @@
 
 import CoreModule
 
-protocol HomeInteractorOutputProtocol {
-    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformationModel]], cityName: String)
-    func onFetchWeatherInformationFailure(errorMessage: String)
-}
-
 final class HomeInteractor: HomeInteractorProtocol {
     
     let service: HomeServiceProtocol
@@ -34,8 +29,8 @@ final class HomeInteractor: HomeInteractorProtocol {
     /// Splits weather information data into different days.
     /// - Parameter weatherInformationModelArray: Information array to be split.
     /// - Returns: Array of information model arrays.
-    private func prepareWeatherInformationData(weatherInformationModelArray:[CountryWeatherInformationModel]) -> [[CountryWeatherInformationModel]]  {
-        var splittedItems: [[CountryWeatherInformationModel]] = []
+    private func prepareWeatherInformationData(weatherInformationModelArray:[CountryWeatherInformation]) -> [[CountryWeatherInformation]]  {
+        var splittedItems: [[CountryWeatherInformation]] = []
         var days: [Int] = []
         
         for weatherInformationModel in weatherInformationModelArray {
@@ -58,7 +53,7 @@ final class HomeInteractor: HomeInteractorProtocol {
 
 extension HomeInteractor: HomeServiceOutputProtocol {
     
-    func onFetchWeatherInformationSuccess(response: WeatherInformationResponseModel) {
+    func onFetchWeatherInformationSuccess(response: WeatherInformationResponse) {
         output?.onFetchWeatherInformationSuccess(weatherInformationList: prepareWeatherInformationData(weatherInformationModelArray: response.list), cityName: response.city.name)
     }
     
@@ -69,7 +64,7 @@ extension HomeInteractor: HomeServiceOutputProtocol {
 
 extension WeakRef: HomeInteractorOutputProtocol where T: HomeInteractorOutputProtocol {
     
-    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformationModel]], cityName: String) {
+    func onFetchWeatherInformationSuccess(weatherInformationList: [[CountryWeatherInformation]], cityName: String) {
         object?.onFetchWeatherInformationSuccess(weatherInformationList: weatherInformationList, cityName: cityName)
     }
     
