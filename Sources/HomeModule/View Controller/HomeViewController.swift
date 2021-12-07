@@ -35,6 +35,8 @@ public final class HomeViewController: UIViewController {
     private let locationManager: CLLocationManager = CLLocationManager()
     private let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     
+    private let arda = "arda"
+    
     // MARK: Internal properties
     let presenter: HomePresenterProtocol
     
